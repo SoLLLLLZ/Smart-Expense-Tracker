@@ -710,8 +710,8 @@ class ExpenseTrackerApp(tk.Tk):
                   color=T["CARD"],   hover=T["ACCENT"],
                   fg="#000000").pack(side="left", padx=4)
         _make_btn(tb, "🗑 Delete",   self.on_delete_expense,
-                  color=T["DANGER"], hover="#8b0000",
-                  fg=T["DANGER_FG"]).pack(side="left", padx=4)
+                  color=T["CARD"], hover=T["ACCENT"],
+                  fg="#000000").pack(side="left", padx=4)
         _make_btn(tb, "📊 Report",   self.on_generate_report,
                   color=T["CARD"],   hover=T["ACCENT"],
                   fg="#000000").pack(side="left", padx=4)
