@@ -14,16 +14,42 @@ The app I built is a Smart Expense Tracker. This is a local desktop application 
 
 ```sql
 CREATE TABLE expenses (
-    id              INTEGER/Text PRIMARY KEY AUTOINCREMENT,
-    date            TEXT    NOT NULL,
-    merchant        TEXT    NOT NULL,
-    amount          INTEGER    NOT NULL CHECK (amount > 0),
-    category        TEXT    NOT NULL DEFAULT 'Uncategorized',
-    payment_method  TEXT    NOT NULL DEFAULT 'other',
-    source          TEXT    NOT NULL DEFAULT 'manual',
-    created_at      TEXT    NOT NULL DEFAULT (datetime('now', 'localtime'))
+    id              INTEGER/Text     Constraints,
+    date            TEXT             NOT NULL,
+    merchant        TEXT             NOT NULL,
+    amount          INTEGER          NOT NULL CHECK (amount > 0),
+    category        TEXT             NOT NULL DEFAULT 'Uncategorized',
+    payment_method  TEXT             NOT NULL DEFAULT 'other',
+    source          TEXT             NOT NULL DEFAULT 'manual',
+    created_at      TEXT             NOT NULL DEFAULT (datetime('now', 'localtime'))
 );
 ```
+
+## CRUD Operations
+
+Create — Add a new expense. You can do this in the terminal or in the interactive GUI:
+
+python main.py add --merchant "Starbucks" --amount 6.75 --category "Food & Dining" --payment-method credit_card --date 2026-03-15
+# or interactively: python main.py add
+In the GUI: click + Add, fill in the dialog, click Save.
+
+Read — View and search expenses. You can do this in the terminal or in the interactive GUI:
+
+python main.py view     # all expenses
+python main.py search --category "Food & Dining"
+python main.py search --from 2026-01-01 --to 2026-03-31
+In the GUI: the table loads on startup; use the search bar, time filters (Day/Week), or click column headers to sort.
+
+Update — Edit an existing expense by ID. You can do this in the terminal or in the interactive GUI:
+
+python main.py update --id 1 --amount 7.50
+In the GUI: double-click any row (or select it and click ✏ Edit), change fields, click Save.
+
+Delete — Remove an expense by ID. You can do this in the terminal or in the interactive GUI:
+
+python main.py delete --id 1
+In the GUI: select a row and click 🗑 Delete — a confirmation prompt appears before deletion.
+
 
 ## Requirements
 
