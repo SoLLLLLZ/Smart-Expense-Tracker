@@ -30,7 +30,6 @@ CREATE TABLE expenses (
 Create — Add a new expense. You can do this in the terminal or in the interactive GUI:
 
 python main.py add --merchant "Starbucks" --amount 6.75 --category "Food & Dining" --payment-method credit_card --date 2026-03-15
-# or interactively: python main.py add
 In the GUI: click + Add, fill in the dialog, click Save.
 
 Read — View and search expenses. You can do this in the terminal or in the interactive GUI:
