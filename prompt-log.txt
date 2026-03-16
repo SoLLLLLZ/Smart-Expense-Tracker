@@ -1,0 +1,21 @@
+Models used:
+- ChatGPT (for planning)
+- Claude code (for coding)
+**This was the first time I tried using Claude code connected to my Github to create my project. Usually I use the Claude web browser and copy everything over to VScode manually for better testing. However, I decided to try something new this time. It took some time to properly setup Claude code, but I am pleased with the overall result and workflow. It was highly efficient compared to manually copy pasting. However, I noticed that you need to give it very specific prompts when you get to late stage project implementations. If you ask it to fix the bug it might only fix the bug in one page, but skip the other pages since there's so many. 
+**Workflow was first planning and iterating on the plan with ChatGPT. Then I fed the plan to Claude code and had it generate each phase. At each phase I told it to give me terminal commands I could run to test the functionality of everything. 
+
+Planning stage prompts to ChatGPT:
+- I want to create a budget tracker where you can manually add money you've spent, but also upload your receipts and applepay screenshots and it also adds automatically
+- create this into a comprehensive project plan with techstack and architecture with phases that I can feed into claude to let claude build the project
+- Add these requirements to the phases: Core Requirements (your app must do all of these) Your app must use a SQLite database with at least one table containing at least 4 columns (including an id column). Your app must support all four CRUD operations: Operation What It Means Example Create Add a new record to the database Add a new book to my reading log Read Retrieve and display records Show all books I've read this year Update Modify an existing record Change a book's rating from 3 to 4 stars Delete Remove a record from the database Remove a book I added by mistake Your Read functionality must include at least one query that filters or sorts the data based on user input (e.g., "show only 5-star books" or "show entries sorted by date"). Graphical interface: A desktop app using a library like tkinter or PyQt. Only attempt this if you're comfortable or curious.
+
+Building stage with Claude code:
+- What do you think about this implementation plan: https://docs.google.com/document/d/1Z0Ej7lOlEXZuBHeTz_CwzYFsZrGR1EgMWvwPUDBBlvM/edit?usp=sharing 
+- OK Good let's go with your implementation plan. You will implement one phase at a time and when you finish one phase you will explain to me how I should test that it worked on my end. Let's start
+- OK phase 1 works let's move on
+- Implement the CRUD operations and give me commands to test it before moving on
+- Now let's test the full functionality give me edge cases to try and commands to test with
+- OK this is good. Let's now make the UI/UX better. First we will work on the UX. Here's what I want you to do for the UX: Make the buttons pop out more and interactive, The ID should always start at 1 even if you delete the item at index 1 it resets to start at index 1 with the numbers going in seqential order, Have a filter button that can filter by month, week, day, Also implement another screen that shows a money calendar. This will be a calendar view with month, week, day that shows money spending for each block., Mouse icon should change. When you move around the screen the mouse icon should be a money bill (aesthetic). Be creative with the mouse icon
+- I want two themes (tokyo night theme) and (gradient sunrise theme) These themes will be able to toggle to each other and make sure when you implement these two themes the text is readable over the background color. Also make it have snow falling in the main background for both themes
+- the background for tokyo night and gradient sunrise are practically the same they are both puprple color. This is not what I wanted. I wanted these two themes to minic light mode and dark mode so they should be different with the gradient sunrise being the light mode and tokyo night being the dark mode. Also the text is still hard to see over the button color. Make more contrast. Make this contract on all button text areas.
+- These calendar blocks are not even or aligned. Make it aligned and even even if there is text in them from the amount. Make sure this change is effective for both themes.
