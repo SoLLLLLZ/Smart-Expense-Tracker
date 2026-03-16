@@ -1,6 +1,6 @@
 # Smart Expense Tracker
 
-A local desktop expense tracking application built with Python and SQLite. Supports manual entry, receipt OCR, spending analytics, and an optional GUI.
+The app I built is a Smart Expense Tracker. This is a local desktop application that tracks personal expenses and records the merchant, amount, date, category, and payment method for each transaction. I've found that I often have trouble managing my expenses when they are all seperated and managed through different mediums (credit card, debit card, zelle, US card, and Canadian card). So I wanted an organized space where I could track all my expenses. Additionally, I've also found that I usually throw out receipts without a second thought. Therefore, I decided to make receipts more useful by giving my app the option to upload the receipt and it will automatically log the expense. This is an application built with Python and SQLite. Supports manual entry, receipt OCR, spending analytics, and an interactive GUI.
 
 ## Features
 
@@ -9,6 +9,21 @@ A local desktop expense tracking application built with Python and SQLite. Suppo
 - Upload receipt images — OCR extracts merchant, amount, and date automatically
 - Spending analytics: totals by category, payment method, monthly summaries, top merchants
 - Optional tkinter desktop GUI
+
+## Database Schema
+
+```sql
+CREATE TABLE expenses (
+    id              INTEGER/Text PRIMARY KEY AUTOINCREMENT,
+    date            TEXT    NOT NULL,
+    merchant        TEXT    NOT NULL,
+    amount          INTEGER    NOT NULL CHECK (amount > 0),
+    category        TEXT    NOT NULL DEFAULT 'Uncategorized',
+    payment_method  TEXT    NOT NULL DEFAULT 'other',
+    source          TEXT    NOT NULL DEFAULT 'manual',
+    created_at      TEXT    NOT NULL DEFAULT (datetime('now', 'localtime'))
+);
+```
 
 ## Requirements
 
@@ -106,21 +121,6 @@ python main.py --gui
     ├── test_crud.py
     ├── test_analytics.py
     └── test_parser.py
-```
-
-## Database Schema
-
-```sql
-CREATE TABLE expenses (
-    id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    date            TEXT    NOT NULL,
-    merchant        TEXT    NOT NULL,
-    amount          REAL    NOT NULL CHECK (amount > 0),
-    category        TEXT    NOT NULL DEFAULT 'Uncategorized',
-    payment_method  TEXT    NOT NULL DEFAULT 'other',
-    source          TEXT    NOT NULL DEFAULT 'manual',
-    created_at      TEXT    NOT NULL DEFAULT (datetime('now', 'localtime'))
-);
 ```
 
 ## Running Tests
