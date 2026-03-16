@@ -289,7 +289,7 @@ class ExpenseDialog(tk.Toplevel):
         bf = tk.Frame(self, bg=T["BG"])
         bf.grid(row=5, column=0, columnspan=2, pady=14)
         _make_btn(bf, "Save",   self._on_save,  color=T["ACCENT"],
-                  hover=T["BTN_HOVER"], fg=T["TEXT_ON_ACCENT"], width=10).pack(side="left", padx=6)
+                  hover=T["BTN_HOVER"], fg="#000000", width=10).pack(side="left", padx=6)
         _make_btn(bf, "Cancel", self.destroy,   color=T["CARD"],
                   hover=T["PANEL"], fg="#000000", width=10).pack(side="left", padx=6)
 
@@ -375,7 +375,7 @@ class CalendarScreen(tk.Toplevel):
                       fg="#000000", padx=12, pady=4).pack(side="right", padx=4)
         _make_btn(bar, "Today", self._go_today,
                   color=T["ACCENT"], hover=T["BTN_HOVER"],
-                  fg=T["TEXT_ON_ACCENT"], padx=10, pady=4).pack(side="right", padx=8)
+                  fg="#000000", padx=10, pady=4).pack(side="right", padx=8)
 
     def _set_view(self, v):
         self._view.set(v); self._render()
@@ -681,7 +681,7 @@ class ExpenseTrackerApp(tk.Tk):
         label = "🌙 Tokyo Night" if self._theme_name == "sunrise" else "🌅 Sunrise"
         _make_btn(hdr, label, self._toggle_theme,
                   color=T["ACCENT"], hover=T["BTN_HOVER"],
-                  fg=T["TEXT_ON_ACCENT"], padx=12, pady=6).pack(side="right", padx=14)
+                  fg="#000000", padx=12, pady=6).pack(side="right", padx=14)
 
     # ------------------------------------------------------------------
     # Snow layer
@@ -702,7 +702,7 @@ class ExpenseTrackerApp(tk.Tk):
 
         _make_btn(tb, "+ Add",       self.on_add_expense,
                   color=T["ACCENT"], hover=T["BTN_HOVER"],
-                  fg=T["TEXT_ON_ACCENT"]).pack(side="left", padx=(10, 4))
+                  fg="#000000").pack(side="left", padx=(10, 4))
         _make_btn(tb, "📷 Receipt",  self.on_upload_receipt,
                   color=T["CARD"],   hover=T["ACCENT"],
                   fg="#000000").pack(side="left", padx=4)
@@ -711,13 +711,13 @@ class ExpenseTrackerApp(tk.Tk):
                   fg="#000000").pack(side="left", padx=4)
         _make_btn(tb, "🗑 Delete",   self.on_delete_expense,
                   color=T["DANGER"], hover="#8b0000",
-                  fg=T["DANGER_FG"]).pack(side="left", padx=4)
+                  fg="#000000").pack(side="left", padx=4)
         _make_btn(tb, "📊 Report",   self.on_generate_report,
                   color=T["CARD"],   hover=T["ACCENT"],
                   fg="#000000").pack(side="left", padx=4)
         _make_btn(tb, "📅 Calendar", self.on_open_calendar,
                   color=T["ACCENT"], hover=T["BTN_HOVER"],
-                  fg=T["TEXT_ON_ACCENT"]).pack(side="left", padx=4)
+                  fg="#000000").pack(side="left", padx=4)
 
         tk.Frame(tb, bg=T["CARD"], width=2).pack(side="left", fill="y", padx=8)
 
